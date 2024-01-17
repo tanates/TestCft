@@ -2,8 +2,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//Класс для прочтения данных из входных файлов и для записи в новые файлы
 public class FileReaderWriter {
 
+
+    //читает данные из фалов которые вы задали
     public ModelTypeAFile getAllStrFromFileIn(List<String> filePathList) {
         ModelTypeAFile modelList ;
         String strFromFil = "";
@@ -26,6 +29,7 @@ public class FileReaderWriter {
         return new ModelTypeAFile(allStrFromFile);
     }
 
+    //Записывает данные  в новый фаил
     public void writeFileByType(List<?> str, String filePuth,boolean addingFile) {
 
 

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-
+//Класс служет как модель для сборра данных с входных файлов
+// так же  в конструкторе парсится на листы по типам
 public class ModelTypeAFile {
 
     private List <String>  typeString ;
@@ -25,6 +26,7 @@ public class ModelTypeAFile {
         }
     }
 
+    //стандартные гетеры
     public List<String> getTypeString() {
         return typeString;
     }
@@ -37,12 +39,4 @@ public class ModelTypeAFile {
         return typeFloat;
     }
 
-    @Override
-    public String toString() {
-        return "ModelTypeStringFile{" +
-                "typeString=" + typeString +
-                ", typeInteger=" + typeInteger +
-                ", typeFloat=" + typeFloat +
-                '}';
-    }
 }

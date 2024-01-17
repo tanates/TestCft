@@ -10,15 +10,19 @@ public class StartUtiClass  implements IStatistics {
     String saveFilePath = "";
     String outNameFile = "";
     List <String> fileInPath  = new ArrayList<>();
-    public  void startUtil(String [] args){
+    public  void startUtil(String [] args)//Метод для запуска утилиты
+    {
        parseArgs(args);
-        if (saveFilePath==null&&saveFilePath.isEmpty())
-            saveFilePath = System.getProperty("user.dir") + File.separator ;
+        if (saveFilePath==null&&saveFilePath.isEmpty()) //Проверка пустой ли путь для сох файла
+            saveFilePath = System.getProperty("user.dir") + File.separator ; //получение директории где находится фали jar
+
        creatFileByType(outNameFile,saveFilePath);
 
     }
 
-    private  void creatFileByType(String outNameFile , String saveFilePath){
+    //Метод для создание файлом по типам данных
+
+    private  void creatFileByType(String outNameFile , String saveFilePath) {
          FileReaderWriter reader = new FileReaderWriter();
          ModelTypeAFile model = reader.getAllStrFromFileIn(fileInPath);
          if (model.getTypeFloat().size()!=0){
@@ -42,6 +46,7 @@ public class StartUtiClass  implements IStatistics {
          }
     }
 
+    //Обший метод создание файла сделал один метод и передаю его по условиям
     private  void creatFile(String path){
        try{
            Path file = Paths.get(path);
@@ -49,9 +54,7 @@ public class StartUtiClass  implements IStatistics {
            System.out.println("Ошибка создание файла"+e.getMessage());
        }
     }
-    private void statisticsNumb(){
-
-    }
+    //Парсинг аргументов
     private  void  parseArgs (String [] args){
         for (int i = 0 ; i<args.length; i++){
             switch (args[i]) {
@@ -81,6 +84,9 @@ public class StartUtiClass  implements IStatistics {
     }
 
     @Override
+    // Override Метод хотел сделать обший метод для всех типов
+    // то есть что бы метод подстраивался под входные данные как видете что то не получилось
+    //
     public  void   getStatistics(List str, String statisticsName, boolean minState, boolean fulState) {
         if (minState){
             System.out.println("Краткая статистика"+"\n"+"Элементов записанно в файл "+statisticsName+ ": "
